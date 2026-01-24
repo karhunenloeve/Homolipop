@@ -1,7 +1,7 @@
-RobbyBubble
+Homolipop
 ===========
 
-RobbyBubble is a research oriented Python package for computational geometry and
+Homolipop is a research oriented Python package for computational geometry and
 topological data analysis. The current scope covers Delaunay triangulations in
 R^d, alpha filtrations, coboundary operators with ring coefficients, and
 persistent homology over fields.

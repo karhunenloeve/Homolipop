@@ -1,8 +1,8 @@
 import numpy as np
 
-from robbybubble.alpha import alpha_values_squared
-from robbybubble.delaunay import delaunay_d_dim
-from robbybubble.simplices import build_complex
+from homolipop.alpha import alpha_values_squared
+from homolipop.delaunay import delaunay_d_dim
+from homolipop.simplices import build_complex
 
 
 def main() -> None:

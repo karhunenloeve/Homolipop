@@ -1,6 +1,6 @@
 # tests/test_persistence_triangle_fields.py
-from robbybubble.persistence import field_Fp, persistent_homology_field
-from robbybubble.simplices import build_complex
+from homolipop.persistence import field_Fp, persistent_homology_field
+from homolipop.simplices import build_complex
 
 
 def _triangle_filtration() -> list[tuple[int, ...]]:

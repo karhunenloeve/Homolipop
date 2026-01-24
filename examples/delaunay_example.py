@@ -1,7 +1,6 @@
-# examples/delaunay_example.py
 import numpy as np
 
-from robbybubble import delaunay_d_dim
+from homolipop import delaunay_d_dim
 
 
 def main() -> None:

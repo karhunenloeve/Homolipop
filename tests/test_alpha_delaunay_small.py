@@ -1,8 +1,8 @@
 import numpy as np
 
-from robbybubble.alpha import alpha_values_squared
-from robbybubble.delaunay import delaunay_d_dim
-from robbybubble.simplices import build_complex, iter_faces
+from homolipop.alpha import alpha_values_squared
+from homolipop.delaunay import delaunay_d_dim
+from homolipop.simplices import build_complex, iter_faces
 
 
 def test_alpha_defined_for_all_simplices_in_closure() -> None:

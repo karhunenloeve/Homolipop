@@ -1,7 +1,6 @@
-# tests/test_delaunay.py
 import numpy as np
 
-from robbybubble import delaunay_d_dim
+from homolipop import delaunay_d_dim
 
 
 def test_delaunay_2d_returns_triangles() -> None:

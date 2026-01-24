@@ -1,6 +1,6 @@
 import numpy as np
 
-from robbybubble.alpha import alpha_values_squared
+from homolipop.alpha import alpha_values_squared
 
 
 def main() -> None:

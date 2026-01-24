@@ -1,10 +1,9 @@
-# examples/coboundary_mod_p.py
 from __future__ import annotations
 
 from typing import Dict, Tuple
 
-from robbybubble.coboundary import build_coboundary
-from robbybubble.simplices import Simplex, build_complex
+from homolipop.coboundary import build_coboundary
+from homolipop.simplices import Simplex, build_complex
 
 
 def main() -> None:

@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "robbybubble"
+name = "homolipop"
 version = "0.1.0"
 description = "Research oriented computational geometry and topology: Delaunay, alpha filtrations, and persistence."
 readme = "README.txt"
@@ -42,5 +42,5 @@ target-version = "py310"
 [tool.mypy]
 python_version = "3.10"
 mypy_path = ["src"]
-packages = ["robbybubble"]
+packages = ["homolipop"]
 strict = true

@@ -5,8 +5,8 @@ from typing import Callable, Dict
 
 import pytest
 
-from robbybubble.coboundary import RingOps, build_coboundary, build_coboundary_Fp, build_coboundary_Z
-from robbybubble.simplices import Simplex, build_complex
+from homolipop.coboundary import RingOps, build_coboundary, build_coboundary_Fp, build_coboundary_Z
+from homolipop.simplices import Simplex, build_complex
 
 
 def _filtration_for_single_triangle() -> list[Simplex]:

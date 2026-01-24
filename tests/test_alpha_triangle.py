@@ -1,6 +1,6 @@
 import numpy as np
 
-from robbybubble.alpha import alpha_values_squared
+from homolipop.alpha import alpha_values_squared
 
 
 def test_alpha_squared_for_right_triangle_is_half() -> None:

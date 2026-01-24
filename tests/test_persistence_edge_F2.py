@@ -1,6 +1,6 @@
 # tests/test_persistence_edge_F2.py
-from robbybubble.persistence import field_Fp, persistent_homology_field
-from robbybubble.simplices import build_complex
+from homolipop.persistence import field_Fp, persistent_homology_field
+from homolipop.simplices import build_complex
 
 
 def test_persistence_single_edge_over_F2() -> None:

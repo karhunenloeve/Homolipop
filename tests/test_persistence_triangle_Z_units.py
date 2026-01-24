@@ -1,5 +1,5 @@
-from robbybubble.persistence import persistent_homology_unit_ring, ring_Z_units
-from robbybubble.simplices import build_complex
+from homolipop.persistence import persistent_homology_unit_ring, ring_Z_units
+from homolipop.simplices import build_complex
 
 
 def test_triangle_over_Z_units_runs_and_pairs_H1() -> None:

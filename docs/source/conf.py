@@ -9,3 +9,8 @@ extensions = [
 ]
 
 html_theme = "furo"
+
+project = "Homolipop"
+author = "Luciano Melodia"
+copyright = "2026, Luciano Melodia"
+release = "1.0.0"

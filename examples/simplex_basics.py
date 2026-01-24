@@ -1,4 +1,4 @@
-from robbybubble.simplices import canonical_simplex, iter_faces, simplex_dim
+from homolipop.simplices import canonical_simplex, iter_faces, simplex_dim
 
 
 def main() -> None:

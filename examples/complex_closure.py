@@ -1,4 +1,4 @@
-from robbybubble.simplices import build_complex
+from homolipop.simplices import build_complex
 
 
 def main() -> None:

@@ -1,6 +1,5 @@
-# examples/persistence_triangle_Z_units.py
-from robbybubble.persistence import persistent_homology_unit_ring, ring_Z_units
-from robbybubble.simplices import build_complex
+from homolipop.persistence import persistent_homology_unit_ring, ring_Z_units
+from homolipop.simplices import build_complex
 
 
 def main() -> None:

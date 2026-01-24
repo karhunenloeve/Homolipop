@@ -4,7 +4,7 @@ API Reference
 simplices
 ---------
 
-.. automodule:: robbybubble.simplices
+.. automodule:: homolipop.simplices
    :members:
    :undoc-members:
    :show-inheritance:
@@ -12,7 +12,7 @@ simplices
 delaunay
 --------
 
-.. automodule:: robbybubble.delaunay
+.. automodule:: homolipop.delaunay
    :members:
    :undoc-members:
    :show-inheritance:
@@ -20,7 +20,7 @@ delaunay
 alpha
 -----
 
-.. automodule:: robbybubble.alpha
+.. automodule:: homolipop.alpha
    :members:
    :undoc-members:
    :show-inheritance:
@@ -28,7 +28,7 @@ alpha
 filtration
 ----------
 
-.. automodule:: robbybubble.filtration
+.. automodule:: homolipop.filtration
    :members:
    :undoc-members:
    :show-inheritance:
@@ -36,7 +36,7 @@ filtration
 coboundary
 ----------
 
-.. automodule:: robbybubble.coboundary
+.. automodule:: homolipop.coboundary
    :members:
    :undoc-members:
    :show-inheritance:
@@ -44,7 +44,7 @@ coboundary
 persistence
 -----------
 
-.. automodule:: robbybubble.persistence
+.. automodule:: homolipop.persistence
    :members:
    :undoc-members:
    :show-inheritance:

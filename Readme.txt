@@ -1,7 +1,7 @@
-RobbyBubble
+Homolipop
 ===========
 
-RobbyBubble is a research oriented Python package for computational geometry and
+Homolipop is a research oriented Python package for computational geometry and
 topological data analysis. The current implementation provides
 
 - Delaunay triangulation in R^d via paraboloid lifting and convex hull
@@ -90,7 +90,7 @@ Usage sketch
 Delaunay triangulation in R^d
 
     import numpy as np
-    from robbybubble.delaunay import delaunay_d_dim
+    from homolipop.delaunay import delaunay_d_dim
 
     points = np.random.default_rng(0).random((50, 2))
     dt = delaunay_d_dim(points)
@@ -98,13 +98,13 @@ Delaunay triangulation in R^d
 
 Alpha values on the induced complex up to dimension 2
 
-    from robbybubble.alpha import alpha_values_squared
+    from homolipop.alpha import alpha_values_squared
 
     alpha = alpha_values_squared(points, top_simplices, max_dim=2)
 
 Coboundary over Z or F_p
 
-    from robbybubble.coboundary import build_coboundary_Z, build_coboundary_Fp
+    from homolipop.coboundary import build_coboundary_Z, build_coboundary_Fp
 
     cobZ = build_coboundary_Z(filtration_simplices)
     cob5 = build_coboundary_Fp(filtration_simplices, p=5)

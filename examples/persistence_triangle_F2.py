@@ -1,8 +1,7 @@
-# examples/persistence_triangle_F2.py
 import numpy as np
 
-from robbybubble.persistence import field_Fp, persistent_homology_field
-from robbybubble.simplices import build_complex
+from homolipop.persistence import field_Fp, persistent_homology_field
+from homolipop.simplices import build_complex
 
 
 def main() -> None:

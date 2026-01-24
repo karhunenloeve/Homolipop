@@ -1,4 +1,4 @@
-from robbybubble.simplices import canonical_simplex, simplex_dim
+from homolipop.simplices import canonical_simplex, simplex_dim
 
 
 def test_canonical_simplex_sorts_and_uniques() -> None:

@@ -1,4 +1,4 @@
-from robbybubble.simplices import iter_faces
+from homolipop.simplices import iter_faces
 
 
 def test_iter_faces_edges_of_triangle() -> None:
