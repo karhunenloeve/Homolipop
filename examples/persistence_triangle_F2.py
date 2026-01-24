@@ -4,7 +4,7 @@ from homolipop.persistence import field_Fp, persistent_homology_field
 from homolipop.simplices import build_complex
 
 
-def main() -> None:
+def main():
     simplices = build_complex([(0, 1, 2)], max_dim=2).all_simplices
     result = persistent_homology_field(simplices, field=field_Fp(2))
 

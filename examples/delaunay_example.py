@@ -3,7 +3,7 @@ import numpy as np
 from homolipop import delaunay_d_dim
 
 
-def main() -> None:
+def main():
     points_2d = np.array(
         [
             [0.0, 0.0],

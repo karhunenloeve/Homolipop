@@ -4,13 +4,19 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "homolipop"
-version = "0.1.0"
-description = "Research oriented computational geometry and topology: Delaunay, alpha filtrations, and persistence."
-readme = "README.txt"
+version = "1.0.0"
+description = "Research oriented computational geometry and topological data analysis: Delaunay, alpha filtrations, and persistence."
+readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "Luciano Melodia" }]
-keywords = ["topological data analysis", "persistent homology", "persistent cohomology", "alpha complex", "delaunay"]
+keywords = [
+  "topological data analysis",
+  "persistent homology",
+  "persistent cohomology",
+  "alpha complex",
+  "delaunay",
+]
 dependencies = [
   "numpy>=1.24",
   "scipy>=1.10",
@@ -25,9 +31,12 @@ dev = [
   "furo>=2024.1.29",
   "myst-parser>=2.0",
 ]
+viz = [
+  "matplotlib>=3.7",
+]
 
 [tool.setuptools]
-package-dir = {"" = "src"}
+package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]

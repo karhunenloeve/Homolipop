@@ -2,7 +2,7 @@ from homolipop.persistence import persistent_homology_unit_ring, ring_Z_units
 from homolipop.simplices import build_complex
 
 
-def main() -> None:
+def main():
     simplices = build_complex([(0, 1, 2)], max_dim=2).all_simplices
     result = persistent_homology_unit_ring(simplices, ring=ring_Z_units())
 

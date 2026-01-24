@@ -5,7 +5,7 @@ from homolipop.delaunay import delaunay_d_dim
 from homolipop.simplices import build_complex
 
 
-def main() -> None:
+def main():
     points = np.array(
         [
             [0.0, 0.0],

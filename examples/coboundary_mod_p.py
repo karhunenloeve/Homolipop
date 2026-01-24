@@ -6,7 +6,7 @@ from homolipop.coboundary import build_coboundary
 from homolipop.simplices import Simplex, build_complex
 
 
-def main() -> None:
+def main():
     p = 5
 
     def add_mod(a: int, b: int) -> int:

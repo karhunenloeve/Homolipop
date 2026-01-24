@@ -1,7 +1,7 @@
 from homolipop.simplices import build_complex
 
 
-def main() -> None:
+def main():
     maximal_simplices = [
         (0, 1, 3),
         (1, 2, 3),

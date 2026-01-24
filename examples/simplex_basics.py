@@ -1,7 +1,7 @@
 from homolipop.simplices import canonical_simplex, iter_faces, simplex_dim
 
 
-def main() -> None:
+def main():
     raw = (5, 2, 7, 2)
     simplex = canonical_simplex(raw)
 

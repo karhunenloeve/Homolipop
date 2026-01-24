@@ -3,7 +3,7 @@ import numpy as np
 from homolipop.alpha import alpha_values_squared
 
 
-def main() -> None:
+def main():
     points = np.array(
         [
             [0.0, 0.0],
