@@ -3,13 +3,14 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "RobbyBubble"
+name = "robbybubble"
 version = "0.1.0"
-description = "Computational geometry and topology: Delaunay via lifting, alpha filtrations, and persistent homology utilities."
-readme = "README.md"
+description = "Research oriented computational geometry and topology: Delaunay, alpha filtrations, and persistence."
+readme = "README.txt"
 requires-python = ">=3.10"
-license = { file = "LICENSE" }
+license = { text = "MIT" }
 authors = [{ name = "Luciano Melodia" }]
+keywords = ["topological data analysis", "persistent homology", "persistent cohomology", "alpha complex", "delaunay"]
 dependencies = [
   "numpy>=1.24",
   "scipy>=1.10",
@@ -17,9 +18,12 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-  "pytest>=7",
-  "ruff>=0.3",
+  "pytest>=7.0",
+  "ruff>=0.5",
   "mypy>=1.8",
+  "sphinx>=7.2",
+  "furo>=2024.1.29",
+  "myst-parser>=2.0",
 ]
 
 [tool.setuptools]
@@ -27,3 +31,16 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+mypy_path = ["src"]
+packages = ["robbybubble"]
+strict = true

@@ -11,15 +11,6 @@ SparseColumn = Dict[int, R]
 
 @dataclass(frozen=True)
 class RingOps:
-    """
-    Ring operations required by the coboundary construction.
-
-    Required algebra
-    - additive group: add, neg, is_zero
-    - distinguished element one
-
-    No multiplication or division is needed to build δ.
-    """
     one: R
     add: Callable[[R, R], R]
     neg: Callable[[R], R]
@@ -28,20 +19,6 @@ class RingOps:
 
 @dataclass(frozen=True)
 class Coboundary:
-    """
-    Sparse coboundary operator δ with coefficients in a ring R.
-
-    Data model
-    - simplices is the filtration-ordered list of simplices.
-    - index maps simplex -> global filtration index.
-    - columns[k][i] is the sparse column for δ on the i-th k-simplex,
-      where i is counted in filtration order restricted to k-simplices.
-    - Each column maps global indices of (k+1)-simplices to coefficients in R.
-
-    Orientation convention
-    - Each simplex is oriented by its increasing vertex order tuple.
-    - Incidence signs are then purely combinatorial: (-1)^i for deleting vertex i.
-    """
     simplices: List[Simplex]
     index: Dict[Simplex, int]
     columns: List[List[SparseColumn]]
@@ -52,19 +29,6 @@ def build_coboundary(
     *,
     ring: RingOps[R],
 ) -> Coboundary:
-    """
-    Build δ = ∂^T as a sparse operator over a ring R.
-
-    Mathematical definition
-    For oriented (k+1)-simplex τ = (v0,...,v_{k+1}),
-        ∂τ = sum_{i=0}^{k+1} (-1)^i (v0,...,v_{i-1},v_{i+1},...,v_{k+1}).
-    Therefore, for k-simplex σ and coface τ with σ = τ without vertex i,
-    the coefficient of τ in δσ is (-1)^i.
-
-    Runtime optimality
-    - One pass over each (k+1)-simplex and its codim-1 faces.
-    - Theta(number_of_incidences) ring operations and dictionary updates.
-    """
     simplices = list(simplices_in_filtration_order)
     if not simplices:
         return Coboundary(simplices=[], index={}, columns=[])
@@ -121,12 +85,6 @@ def oriented_codim1_faces(
     one: R,
     neg: Callable[[R], R],
 ) -> Iterable[Tuple[R, Simplex]]:
-    """
-    Enumerate codimension-1 faces with incidence coefficient.
-
-    For simplex (v0,...,v_m), the i-th face is obtained by deleting v_i
-    and has coefficient (-1)^i in the chosen ring.
-    """
     n = len(simplex)
     for i in range(n):
         face = simplex[:i] + simplex[i + 1 :]
@@ -135,11 +93,6 @@ def oriented_codim1_faces(
 
 
 def integer_ring() -> RingOps[int]:
-    """
-    Convenience ring ops for Z.
-
-    Coefficients are ordinary Python integers with exact arithmetic.
-    """
     return RingOps(
         one=1,
         add=lambda a, b: a + b,
@@ -149,16 +102,6 @@ def integer_ring() -> RingOps[int]:
 
 
 def prime_field(p: int) -> RingOps[int]:
-    """
-    Convenience ring ops for F_p for prime p.
-
-    Representation
-    - Elements are ints in {0,...,p-1}.
-
-    Notes
-    - For building δ, only addition and negation are required, no division.
-    - This function assumes p >= 2; primality is not checked.
-    """
     if p < 2:
         raise ValueError("p must be >= 2")
 
@@ -175,16 +118,8 @@ def prime_field(p: int) -> RingOps[int]:
 
 
 def build_coboundary_Z(simplices_in_filtration_order: Sequence[Simplex]) -> Coboundary:
-    """
-    Coboundary over Z, convenience wrapper.
-    """
     return build_coboundary(simplices_in_filtration_order, ring=integer_ring())
 
 
 def build_coboundary_Fp(simplices_in_filtration_order: Sequence[Simplex], p: int) -> Coboundary:
-    """
-    Coboundary over F_p, convenience wrapper.
-
-    p should be prime for field semantics; for δ construction, any modulus >= 2 works.
-    """
     return build_coboundary(simplices_in_filtration_order, ring=prime_field(p))

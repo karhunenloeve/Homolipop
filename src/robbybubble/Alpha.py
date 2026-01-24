@@ -63,14 +63,6 @@ def initialize_alpha_values(
 
 
 def propagate_alpha_downward(alpha_sq: AlphaMap, simplices_by_dim: Mapping[int, Sequence[Simplex]]) -> None:
-    """
-    Enforce filtration monotonicity:
-    for every face f ⊂ s, alpha_sq[f] <= alpha_sq[s] by pushing values from cofaces to faces.
-
-    Runtime optimality
-    This performs one update per incidence pair (simplex, codim-1 face).
-    Any explicit algorithm must touch Omega(number_of_incidences) data to guarantee monotonicity.
-    """
     for dim in sorted(simplices_by_dim.keys(), reverse=True):
         if dim <= 0:
             continue
@@ -88,23 +80,6 @@ def codim1_faces(simplex: Simplex) -> Iterable[Simplex]:
 
 
 def circumsphere_radius_squared(points: np.ndarray, simplex: Simplex, *, ridge: float = 0.0) -> float:
-    """
-    Squared radius of the minimum circumsphere in the affine hull of the simplex vertices.
-
-    Mathematical core
-    Let vertices be p0,...,pk in R^d with k = |simplex|-1 and affine independence.
-    The circumcenter c in the affine hull satisfies for i=1..k
-        (pi - p0) · c = (||pi||^2 - ||p0||^2) / 2
-    Restricting to the affine hull yields a unique solution.
-
-    Implementation
-    - Build an orthonormal basis Q of span{pi - p0}.
-    - Solve the k×k system in coordinates y in that basis.
-    - Radius squared is ||y||^2 because Q is orthonormal.
-
-    Complexity
-    O(d k^2 + k^3), with k <= max_dim typically small.
-    """
     vertex_indices = np.asarray(simplex, dtype=int)
     vertex_coordinates = points[vertex_indices, :]
 

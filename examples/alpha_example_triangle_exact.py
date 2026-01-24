@@ -1,4 +1,3 @@
-# examples/alpha_example_triangle_exact.py
 import numpy as np
 
 from robbybubble.alpha import alpha_values_squared
