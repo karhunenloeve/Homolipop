@@ -1,117 +1,121 @@
 RobbyBubble
 ===========
 
-RobbyBubble is a computational geometry and topology library focused on
-constructing alpha filtrations and computing persistent cohomology.
+RobbyBubble is a research oriented Python package for computational geometry and
+topological data analysis. The current implementation provides
 
-The design goal is correctness, mathematical clarity, and asymptotically
-optimal algorithms with clean separation of concerns.
+- Delaunay triangulation in R^d via paraboloid lifting and convex hull
+- Explicit simplicial complex construction via simplicial closure
+- Alpha filtration values based on circumsphere radii with monotonic face propagation
+- Coboundary operators with coefficients in general rings, including Z and F_p
+
+The intended downstream objective is persistent cohomology.
 
 -----------------------------------------------------------------------
-Core concepts
+Mathematical conventions and data representations
 -----------------------------------------------------------------------
 
-Points
-- Input data is a finite set of points in R^d, represented as a NumPy array
-  of shape (n_points, ambient_dimension).
+Point clouds
+- A point cloud is a NumPy array of shape (n, d) with entries in R.
 
-Simplex
+Simplices
 - A simplex is represented as a strictly increasing tuple of vertex indices.
-  Examples:
-    (i,)           vertex
-    (i, j)         edge
-    (i, j, k)      triangle
-    (i, j, k, l)   tetrahedron
-- The dimension of a simplex is len(simplex) - 1.
+  The dimension is dim(σ) = |σ| - 1.
+  Examples
+    (i,)           0 simplex
+    (i, j)         1 simplex
+    (i, j, k)      2 simplex
+    (i, j, k, l)   3 simplex
 
-Simplicial complex
-- A simplicial complex is represented explicitly by all its simplices.
-- Given maximal simplices, the simplicial closure contains all faces.
+Simplicial complexes
+- Given a set of maximal simplices, the package forms the simplicial closure,
+  i.e. the set of all faces, optionally truncated at a prescribed dimension.
 
-Filtration
-- A filtration assigns a nondecreasing real value to simplices such that
-  every face appears no later than its cofaces.
+Orientations
+- Each simplex σ = (v0, ..., vk) is oriented by the increasing vertex order.
+- Incidence coefficients are determined by the alternating sign convention
+  in the boundary operator.
+
+Filtration values
+- Alpha filtration values are stored as squared radii.
+- Monotonicity is enforced by propagating coface values down to faces.
 
 -----------------------------------------------------------------------
 Modules
 -----------------------------------------------------------------------
 
 delaunay.py
-- Computes the Delaunay triangulation in arbitrary dimension using the
-  paraboloid lifting and convex hull method.
-- Output is a list of top-dimensional simplices.
+- Delaunay triangulation in R^d via lifting to (x, ||x||^2) in R^(d+1) and
+  extracting lower hull facets.
 
 simplices.py
-- Canonical simplex representation.
+- Canonical simplex representation and operations.
 - Face enumeration.
-- Construction of the simplicial closure.
-- Indexing and grouping by dimension.
+- Simplicial closure and explicit complex indexing.
 
 alpha.py
-- Computes squared alpha values for all simplices.
-- Uses circumsphere radii for top-dimensional simplices.
-- Enforces filtration monotonicity by propagating values to faces.
+- Circumsphere radius computation in the affine hull of a simplex.
+- Alpha value assignment and monotonic propagation to faces.
 
-The alpha filtration produced here is suitable as input for persistent
-(co)homology algorithms.
+filtration.py
+- Construction of a filtration compatible total order on simplices:
+    (alpha_sq(σ), dim(σ), lex(σ)).
 
------------------------------------------------------------------------
-Mathematical guarantees
------------------------------------------------------------------------
-
-- All algorithms are explicit-output algorithms and therefore optimal up
-  to constant factors: runtime is Omega(size of the output).
-- Delaunay construction is output-sensitive via convex hull computation.
-- Alpha value propagation touches each incidence relation exactly once.
-- All simplices are canonical, immutable, and hashable.
+coboundary.py
+- Sparse coboundary operator δ = ∂^T over a general coefficient ring.
+- Convenience constructors for Z and F_p.
 
 -----------------------------------------------------------------------
-Quick example
+Algorithmic guarantees
 -----------------------------------------------------------------------
 
-Compute a 2D alpha filtration:
+- Explicit output lower bounds apply throughout: any method enumerating all
+  simplices or all incidences must take Omega(output_size) time.
+- Delaunay computation inherits output sensitivity from the convex hull routine.
+- Alpha propagation performs one update per simplex-face incidence.
+- Filtration ordering is comparison optimal at Theta(|K| log |K|).
+
+-----------------------------------------------------------------------
+Installation
+-----------------------------------------------------------------------
+
+Editable install for development
+
+    python -m pip install -e ".[dev]"
+
+-----------------------------------------------------------------------
+Usage sketch
+-----------------------------------------------------------------------
+
+Delaunay triangulation in R^d
 
     import numpy as np
     from robbybubble.delaunay import delaunay_d_dim
+
+    points = np.random.default_rng(0).random((50, 2))
+    dt = delaunay_d_dim(points)
+    top_simplices = dt.delaunay_simplices
+
+Alpha values on the induced complex up to dimension 2
+
     from robbybubble.alpha import alpha_values_squared
 
-    points = np.array(
-        [
-            [0.0, 0.0],
-            [1.0, 0.0],
-            [0.0, 1.0],
-            [1.0, 1.0],
-        ]
-    )
+    alpha = alpha_values_squared(points, top_simplices, max_dim=2)
 
-    delaunay = delaunay_d_dim(points)
-    alpha = alpha_values_squared(points, delaunay.delaunay_simplices, max_dim=2)
+Coboundary over Z or F_p
 
-    for simplex, value in alpha.alpha_sq.items():
-        print(simplex, value)
+    from robbybubble.coboundary import build_coboundary_Z, build_coboundary_Fp
+
+    cobZ = build_coboundary_Z(filtration_simplices)
+    cob5 = build_coboundary_Fp(filtration_simplices, p=5)
 
 -----------------------------------------------------------------------
 Testing
 -----------------------------------------------------------------------
 
-Run all tests from the repository root:
+Run the full test suite
 
     pytest
-
-Tests cover:
-- simplex canonicalization and face enumeration
-- simplicial closure correctness
-- exact alpha values for simple configurations
-- monotonicity of the alpha filtration
-
------------------------------------------------------------------------
-Intended next steps
------------------------------------------------------------------------
-
-- Persistent cohomology over F2
-- Clearing and compression optimizations
-- Barcode and diagram extraction
-- Optional sparse and approximate filtrations
 
 -----------------------------------------------------------------------
 License
