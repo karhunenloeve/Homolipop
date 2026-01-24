@@ -2,12 +2,13 @@ Homolipop
 =========
 
 Homolipop is a research oriented Python package for computational geometry,
-topological data analysis, and graph based persistence models inspired by
-operator algebra.
+topological data analysis, graph based persistence, and geometric visualization,
+inspired by algebraic topology and operator algebra.
 
 The package provides explicit pipelines from point clouds to field valued
-persistence invariants, with a strong emphasis on mathematical correctness,
-functorial constructions, explicit conventions, and reproducibility.
+persistence invariants, together with high quality geometric visualization tools,
+with a strong emphasis on mathematical correctness, functorial constructions,
+explicit conventions, and reproducibility.
 
 -----------------------------------------------------------------------
 Scope
@@ -34,6 +35,13 @@ Toeplitz quotient direction models
 - A Toeplitz graph algebra motivated quotient semantics for edge filtrations
 - A computable K0 like invariant over F_p with persistence in the quotient direction
 - End to end pipelines from points to K0 like barcodes over F_p
+
+Geometric visualization (simplicialviz)
+- High quality 3D visualization of point clouds in R^3
+- Visualization of simplicial complexes up to dimension 3
+- Rendering of vertices, edges, and triangular faces with configurable styles
+- Direct compatibility with Homolipop simplicial complexes and Delaunay output
+- Matplotlib based rendering with deterministic, publication ready output
 
 -----------------------------------------------------------------------
 Mathematical background
@@ -92,6 +100,9 @@ Editable development install
 Runtime only install
     python -m pip install -e .
 
+Optional visualization dependencies
+    python -m pip install ".[viz]"
+
 -----------------------------------------------------------------------
 Examples
 -----------------------------------------------------------------------
@@ -106,6 +117,9 @@ Graph persistence over F_p
 
 K0 like persistence in Toeplitz quotient direction over F_p
     python examples/pipeline_points_to_k0_like_plot.py
+
+3D visualization of point clouds and simplicial complexes
+    python examples/simplicialviz_points_and_complex_3d.py
 
 -----------------------------------------------------------------------
 Project layout
@@ -125,6 +139,12 @@ src/homolipop/
   plotting.py
   simplices.py
   cstar_functor.py
+
+src/simplicialviz/
+  _types.py
+  views.py
+  plot3d.py
+  __init__.py
 
 examples/
 tests/
@@ -146,6 +166,7 @@ Planned extensions include
 - Computable induced maps on K theory for nontrivial graph C star algebra models
 - Comparisons between graph homology persistence and operator algebra motivated invariants
 - Torsion sensitive invariants beyond field coefficients
+- Interactive and web based backends for simplicial visualization
 
 -----------------------------------------------------------------------
 License
