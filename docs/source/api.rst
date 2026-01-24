@@ -20,3 +20,4 @@ API Reference
    homolipop.simplices
    homolipop.simplex
    homolipop.vertex_growth_filtration
+   homolipop.edge_filtration
