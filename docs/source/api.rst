@@ -21,6 +21,9 @@ API Reference
    homolipop.simplex
    homolipop.vertex_growth_filtration
    homolipop.edge_filtration
+   homolipop.k0_like
+   homolipop.cstar_functor
+   homolipop.graph_persistence_fp
 
 simplicialviz
 -------------
