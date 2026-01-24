@@ -21,3 +21,27 @@ API Reference
    homolipop.simplex
    homolipop.vertex_growth_filtration
    homolipop.edge_filtration
+
+simplicialviz
+-------------
+
+.. automodule:: simplicialviz
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+simplicialviz.plot3d
+--------------------
+
+.. automodule:: simplicialviz.plot3d
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+simplicialviz.views
+-------------------
+
+.. automodule:: simplicialviz.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
