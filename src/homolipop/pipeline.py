@@ -13,6 +13,8 @@ from .simplices import Simplex, SimplicialComplex
 from .graph_filtration import GraphFiltration, proximity_graph_filtration
 from .kgraph import KTheoryFp, k_theory_cuntz_krieger_Fp
 from .kplotting import KTheoryProfile
+from .vertex_growth_filtration import vertex_growth_filtration, nested_cuntz_krieger_matrices_mod_p
+from .pkgraph import persistent_kgraph_from_nested_matrices
 
 R = TypeVar("R")
 
@@ -93,3 +95,25 @@ def k_theory_profile_from_points(
     )
 
     return KTheoryPipelineResult(filtration=filtration, profile=profile)
+
+
+
+
+def persistent_toeplitz_k_theory_from_points(
+    points: np.ndarray,
+    *,
+    p: int,
+    neighbor_rank: int = 1,
+    use_squared_distances: bool = False,
+    distance_tolerance: float = 0.0,
+    include_self_loops: bool = False,
+) -> PersistentKGraphResult:
+    filtration = vertex_growth_filtration(
+        points,
+        neighbor_rank=neighbor_rank,
+        use_squared_distances=use_squared_distances,
+        distance_tolerance=distance_tolerance,
+        include_self_loops=include_self_loops,
+    )
+    matrices = nested_cuntz_krieger_matrices_mod_p(filtration, p=p)
+    return persistent_kgraph_from_nested_matrices(matrices, p=p, step_values=filtration.step_values)
