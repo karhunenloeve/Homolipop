@@ -1,91 +1,128 @@
 Homolipop
 =========
 
-Homolipop is a research oriented Python package for computational geometry and
-topological data analysis. The current scope covers Delaunay triangulations in
-R^d, alpha filtrations, coboundary operators with ring coefficients, and
-persistent homology over fields.
+Homolipop is a research oriented Python package for computational geometry,
+topological data analysis, and operator-algebraic persistence.
+
+The package provides a coherent pipeline from point clouds to invariants derived
+from algebraic topology and C*-algebra K-theory, with a strong emphasis on
+mathematical correctness, explicit constructions, and reproducibility.
+
+-----------------------------------------------------------------------
+Scope
+-----------------------------------------------------------------------
+
+Homolipop currently supports:
+
+Geometric constructions
+- Delaunay triangulations in R^d via paraboloid lifting
+- Alpha complexes and alpha filtrations
+- Deterministic filtration orders
+
+Algebraic topology
+- Sparse coboundary operators over arbitrary rings
+- Persistent homology over fields
+- Barcode extraction and visualization
+
+Operator algebraic persistence
+- Graph filtrations induced by proximity in point clouds
+- Cuntz–Krieger graph C*-algebras O_A
+- Computation of K_0 ⊗ F_p and K_1 ⊗ F_p via kernel/cokernel presentations
+- Persistent K-theory profiles along graph filtrations
+- Visualization of K-theoretic invariants along scale parameters
+
+-----------------------------------------------------------------------
+Mathematical background
+-----------------------------------------------------------------------
+
+Persistent homology is computed over fields, where persistence modules admit
+interval decompositions and barcodes.
+
+Persistent K-theory is implemented in an operator-algebraic sense by associating
+to each filtration step a graph C*-algebra and computing its K-theory after base
+change to a finite field F_p. This yields computable, stable invariants that are
+functorial at the level of vector spaces.
+
+At present, Homolipop provides K-theory profiles along filtrations. The
+construction of full K-theory barcodes requires explicit functorial *-homomorphisms
+between graph C*-algebras and is an active direction of development.
 
 -----------------------------------------------------------------------
 Documentation
 -----------------------------------------------------------------------
 
-Online documentation
-- https://karhunenloeve.github.io/Homolipop/
+Online documentation:
+https://karhunenloeve.github.io/Homolipop/
 
-API reference
-- https://karhunenloeve.github.io/Homolipop/api.html
+API reference:
+https://karhunenloeve.github.io/Homolipop/api.html
 
-The documentation is generated from source code docstrings using Sphinx and is
-published via GitHub Pages.
+The documentation is generated from source code docstrings using Sphinx and
+published automatically via GitHub Pages.
 
 -----------------------------------------------------------------------
 Installation
 -----------------------------------------------------------------------
 
-Development install
+Editable development install:
     python -m pip install -e ".[dev]"
 
-Runtime-only install
+Runtime-only install:
     python -m pip install -e .
+
+Optional visualization dependencies:
+    python -m pip install ".[viz]"
 
 -----------------------------------------------------------------------
 Examples
 -----------------------------------------------------------------------
 
-Runnable example scripts are located in the examples directory.
+Runnable examples are located in the examples directory.
 
-Run an example from the repository root
-    python examples/persistence_triangle_F2.py
+Persistent homology with alpha filtration:
+    python examples/pipeline_alpha_persistence_plot.py
 
-If you see ModuleNotFoundError, install the package in editable mode first.
-
------------------------------------------------------------------------
-Testing
------------------------------------------------------------------------
-
-Run the full test suite from the repository root
-    pytest
+Operator-algebraic K-theory profile for graph filtrations:
+    python examples/pipeline_kgraph_profile_plot.py
 
 -----------------------------------------------------------------------
 Project layout
 -----------------------------------------------------------------------
 
 src/homolipop/
-  __init__.py
-  delaunay.py
-  simplices.py
   alpha.py
-  filtration.py
+  barcodes.py
   coboundary.py
+  delaunay.py
+  filtration.py
+  graph_filtration.py
+  kgraph.py
+  kplotting.py
   persistence.py
+  plotting.py
+  simplices.py
+  pipeline.py
 
 examples/
 tests/
 docs/
 
 -----------------------------------------------------------------------
-Publishing documentation
+Testing
 -----------------------------------------------------------------------
 
-The documentation is built and deployed automatically on every push to main.
-
-Enable GitHub Pages
-- Repository Settings -> Pages -> Source: GitHub Actions
-
-Workflow
-- .github/workflows/docs.yml builds docs and deploys them to GitHub Pages.
+Run the test suite from the repository root:
+    pytest
 
 -----------------------------------------------------------------------
-Mathematical scope and limitations
+Roadmap
 -----------------------------------------------------------------------
 
-- Over fields F_p, persistent homology admits interval decompositions and is
-  fully supported by the field reduction algorithm.
-- Over general rings, interval decompositions need not exist. Homolipop provides
-  coboundary operators over arbitrary rings and a unit pivot reduction mode.
-  Full integer persistence with torsion requires Smith normal form style
-  algorithms and is not implemented in the current scope.
+Planned extensions include:
+- Functorial persistent K-theory barcodes for graph C*-algebras
+- Multi-prime torsion-sensitive K-theory analysis
+- Integration with noncommutative metric geometry constructions
+- Spectral sequence based comparisons between homology and K-theory persistence
 
 -----------------------------------------------------------------------
 License
