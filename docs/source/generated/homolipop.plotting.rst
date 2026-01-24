@@ -1,4 +1,4 @@
-homolipop.plotting
+﻿homolipop.plotting
 ==================
 
 .. automodule:: homolipop.plotting
@@ -10,4 +10,10 @@ homolipop.plotting
    
       plot_barcodes
       save_barcodes_plot
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      BarcodePlotStats
    
