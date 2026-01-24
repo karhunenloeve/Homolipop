@@ -11,6 +11,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "sphinx.ext.mathjax",
+    "sphinx.ext.autosummary"
 ]
 html_theme = "furo"
 html_show_sourcelink = True

@@ -66,7 +66,7 @@ Homolipop exposes the evolution of
 :math:`\dim_{\mathbb{F}_p}(K_1(O_{A_t}) \otimes \mathbb{F}_p)` along the scale
 parameter :math:`t` as a K-theory profile.
 
-Full barcode style persistence requires functorial star homomorphisms
+Full barcode style persistence requires functorial :math:`\ast`-homomorphisms
 :math:`O_{A_s} \to O_{A_t}` inducing linear maps on
 :math:`K_i \otimes \mathbb{F}_p`. Constructing these maps canonically for the
 chosen graph model is an active direction of development.
@@ -85,8 +85,9 @@ Contents
 --------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Documentation
+   :titlesonly:
 
    api
 
