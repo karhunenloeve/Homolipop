@@ -5,4 +5,15 @@ API Reference
    :toctree: generated
    :recursive:
 
-   homolipop
+   homolipop.alpha
+   homolipop.barcodes
+   homolipop.coboundary
+   homolipop.delaunay
+   homolipop.filtration
+   homolipop.graph_filtration
+   homolipop.kgraph
+   homolipop.kplotting
+   homolipop.persistence
+   homolipop.pipeline
+   homolipop.plotting
+   homolipop.simplices
