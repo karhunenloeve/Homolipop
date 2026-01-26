@@ -1,0 +1,24 @@
+[MASTER]
+ignore=docs,examples
+ignore-patterns=docs/source/generated/.*,.*_pb2\.py
+jobs=0
+py-version=3.10
+
+[MESSAGES CONTROL]
+disable=
+    missing-module-docstring,
+    missing-function-docstring,
+    missing-class-docstring,
+    invalid-name,
+    line-too-long,
+    duplicate-code,
+    too-many-locals,
+    too-many-arguments,
+    too-many-branches,
+    too-many-statements,
+    too-many-instance-attributes,
+    broad-exception-caught,
+    import-error
+
+[FORMAT]
+max-line-length=100

@@ -24,13 +24,7 @@ def main():
     simplices = complex_data.all_simplices
     filtration_simplices = simplices
 
-    cob = build_coboundary(
-        filtration_simplices,
-        one=1 % p,
-        add=add_mod,
-        neg=neg_mod,
-        is_zero=is_zero_mod,
-    )
+    cob = build_coboundary(simplices, ring=RingOps(one=1, add=add, neg=neg, is_zero=is_zero))
 
     by_dim_global: Dict[int, list[int]] = {}
     for global_index, simplex in enumerate(filtration_simplices):
