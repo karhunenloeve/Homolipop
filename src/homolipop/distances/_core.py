@@ -145,11 +145,13 @@ def _bottleneck_feasible_finite(x: List[Point], y: List[Point], t: float) -> boo
             hk.add_edge(i, m + i)
 
     for j in range(m):
+        u = n + j
+
         if _diag_distance(y[j]) <= t:
-            u = n + j
             hk.add_edge(u, j)
-            for i in range(n):
-                hk.add_edge(u, m + i)
+
+        for i in range(n):
+            hk.add_edge(u, m + i)
 
     return hk.maximum_matching_size() == left_size
     

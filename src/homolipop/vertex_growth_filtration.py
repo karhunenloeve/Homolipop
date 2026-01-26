@@ -64,9 +64,10 @@ def vertex_growth_filtration(
         effective_rank = rank if rank <= k else k
         radius = _kth_smallest(previous, effective_rank)
 
-        step_values[k] = float(radius)
+        step = float(max(step_values[k - 1], radius))
+        step_values[k] = step
 
-        threshold = radius + tol
+        threshold = step + tol
         neighbors = np.flatnonzero(previous <= threshold)
 
         adjacency[k, neighbors] = 1

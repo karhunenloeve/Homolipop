@@ -81,7 +81,6 @@ def _build_filtered_complex_from_nested_matrices(
         cell_dims.append(0)
         boundary.append({})
 
-        v_count = k
         col = np.asarray(m[:, k - 1], dtype=int) % p
         nz = np.flatnonzero(col)
         bcol: SparseColumn = {int(i * 2): int(col[i]) for i in nz}
@@ -190,10 +189,15 @@ def _barcodes_from_pairs(
     pairs: Sequence[Tuple[int, int, int]],
     unpaired: Sequence[Tuple[int, int]],
 ) -> Barcode:
+    eps = 1e-12
     intervals_by_dim: Dict[int, List[Tuple[float, Optional[float]]]] = {}
 
     for birth_i, death_i, dim in pairs:
-        intervals_by_dim.setdefault(dim, []).append((float(filtration_values[birth_i]), float(filtration_values[death_i])))
+        birth = float(filtration_values[birth_i])
+        death = float(filtration_values[death_i])
+        if death <= birth + eps:
+            continue
+        intervals_by_dim.setdefault(dim, []).append((birth, death))
 
     for birth_i, dim in unpaired:
         intervals_by_dim.setdefault(dim, []).append((float(filtration_values[birth_i]), None))
@@ -234,6 +238,7 @@ def _inv_mod_p(a: int, p: int) -> int:
     if a == 0:
         raise ZeroDivisionError("0 has no inverse mod p")
     return pow(a, p - 2, p)
+
 
 def persistent_toeplitz_k_theory_Fp_from_nested_matrices(
     matrices: Sequence[np.ndarray],
