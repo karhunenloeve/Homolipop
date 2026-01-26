@@ -1,7 +1,7 @@
 import numpy as np
 
 from homolipop.alpha import alpha_values_squared
-from homolipop.delaunay import delaunay_d_dim
+from homolipop.delaunay import delaunay_triangulation
 from homolipop.simplices import build_complex
 
 
@@ -17,7 +17,7 @@ def main():
         dtype=float,
     )
 
-    delaunay = delaunay_d_dim(points)
+    delaunay = delaunay_triangulation(points)
     triangles = delaunay.delaunay_simplices
 
     max_dim = 2

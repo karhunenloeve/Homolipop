@@ -2,11 +2,11 @@ from __future__ import annotations
 
 from typing import Dict, Tuple
 
-from homolipop.coboundary import build_coboundary
-from homolipop.simplices import Simplex, build_complex
+from homolipop.coboundary import RingOps, build_coboundary
+from homolipop.simplices import build_complex
 
 
-def main():
+def main() -> None:
     p = 5
 
     def add_mod(a: int, b: int) -> int:
@@ -24,7 +24,8 @@ def main():
     simplices = complex_data.all_simplices
     filtration_simplices = simplices
 
-    cob = build_coboundary(simplices, ring=RingOps(one=1, add=add, neg=neg, is_zero=is_zero))
+    ring = RingOps(one=1, add=add_mod, neg=neg_mod, is_zero=is_zero_mod)
+    cob = build_coboundary(simplices, ring=ring)
 
     by_dim_global: Dict[int, list[int]] = {}
     for global_index, simplex in enumerate(filtration_simplices):

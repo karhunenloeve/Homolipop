@@ -1,6 +1,6 @@
 import numpy as np
 
-from homolipop import delaunay_d_dim
+from homolipop import delaunay_triangulation
 
 
 def main():
@@ -15,7 +15,7 @@ def main():
         dtype=float,
     )
 
-    result = delaunay_d_dim(points_2d)
+    result = delaunay_triangulation(points_2d)
 
     print("Ambient dimension:", points_2d.shape[1])
     print("Number of points:", points_2d.shape[0])
