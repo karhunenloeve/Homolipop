@@ -130,8 +130,6 @@ def _bottleneck_diagram(x: List[Point], y: List[Point], *, atol: float) -> float
 def _bottleneck_feasible_finite(x: List[Point], y: List[Point], t: float) -> bool:
     n = len(x)
     m = len(y)
-    if n == 0 and m == 0:
-        return True
 
     left_size = n + m
     right_size = m + n
@@ -147,17 +145,14 @@ def _bottleneck_feasible_finite(x: List[Point], y: List[Point], t: float) -> boo
             hk.add_edge(i, m + i)
 
     for j in range(m):
-        yj = y[j]
-        if _diag_distance(yj) <= t:
-            uj = n + j
-            hk.add_edge(uj, j)
+        if _diag_distance(y[j]) <= t:
+            u = n + j
+            hk.add_edge(u, j)
             for i in range(n):
-                hk.add_edge(uj, m + i)
-        else:
-            return False
+                hk.add_edge(u, m + i)
 
     return hk.maximum_matching_size() == left_size
-
+    
 
 def _wasserstein_diagram(x: List[Point], y: List[Point], *, p: int) -> float:
     if not x and not y:
