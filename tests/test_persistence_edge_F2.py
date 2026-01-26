@@ -1,4 +1,3 @@
-# tests/test_persistence_edge_F2.py
 from homolipop.persistence import field_Fp, persistent_homology_field
 from homolipop.simplices import build_complex
 
