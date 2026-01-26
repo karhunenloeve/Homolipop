@@ -75,3 +75,7 @@ def build_complex(
 
     index = {s: i for i, s in enumerate(all_simplices)}
     return SimplicialComplex(simplices_by_dim=simplices_by_dim, all_simplices=all_simplices, index=index)
+
+
+def canonical_simplex(vertices: Iterable[int]) -> Simplex:
+    return normalize_simplex(vertices)
