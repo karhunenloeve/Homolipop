@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.abspath("../../src"))
 
 project = "Homolipop"
 author = "Luciano Melodia"
-release = "1.0"
+release = "1.1"
 
 extensions = [
     "sphinx.ext.autodoc",
@@ -16,11 +16,13 @@ extensions = [
 ]
 
 autosummary_generate = True
+autosummary_generate_overwrite = True
+
 autodoc_default_options = {
     "members": True,
     "undoc-members": True,
     "show-inheritance": True,
 }
 
-html_theme = "furo"
-html_show_sourcelink = True
+napoleon_google_docstring = True
+napoleon_numpy_docstring = True
