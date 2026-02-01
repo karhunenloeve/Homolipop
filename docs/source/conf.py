@@ -13,6 +13,8 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "sphinx.ext.mathjax",
+    "sphinx_design",
+    "sphinx_copybutton",
 ]
 
 autosummary_generate = True
@@ -26,3 +28,4 @@ autodoc_default_options = {
 
 napoleon_google_docstring = True
 napoleon_numpy_docstring = True
+html_theme = "furo"

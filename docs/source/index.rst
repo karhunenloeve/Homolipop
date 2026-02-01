@@ -200,6 +200,7 @@ Contents
    :titlesonly:
 
    api
+   examples
 
 Notes
 -----

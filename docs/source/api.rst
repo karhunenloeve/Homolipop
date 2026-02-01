@@ -7,3 +7,4 @@ API Reference
 
    homolipop
    simplicialviz
+   tests
