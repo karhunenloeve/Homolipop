@@ -1,4 +1,3 @@
-# examples/pipeline_points_to_k0_like_plot.py
 from __future__ import annotations
 
 import matplotlib.pyplot as plt
