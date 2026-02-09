@@ -1,8 +1,8 @@
-Examples
+Tests
 ========
 
 .. autosummary::
    :toctree: generated
    :recursive:
 
-   examples
+   tests
