@@ -196,11 +196,12 @@ Contents
 
 .. toctree::
    :maxdepth: 3
-   :caption: Documentation
+   :caption: Docs
    :titlesonly:
 
    api
    examples
+   tests
 
 Notes
 -----
