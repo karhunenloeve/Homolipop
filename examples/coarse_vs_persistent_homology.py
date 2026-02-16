@@ -172,70 +172,122 @@ def sample_noisy_circle(*, n: int, radius: float, noise: float, seed: int) -> np
     return pts
 
 
-def main() -> None:
-    points = sample_noisy_circle(n=80, radius=1.0, noise=0.03, seed=0)
+def load_digits_points_2d(*, digits: tuple[int, ...], n_per_digit: int, seed: int) -> tuple[np.ndarray, np.ndarray]:
+    """
+    Real dataset, offline: sklearn.datasets.load_digits.
 
-    # Terminal scale for the computation: interpret as the "coarse limit cutoff".
-    max_radius = 2.5
+    Returns
+    -------
+    points : (N, 2) float array
+        PCA projection of digit images to R^2.
+    labels : (N,) int array
+        Digit labels for coloring.
+    """
+    try:
+        from sklearn.datasets import load_digits
+        from sklearn.decomposition import PCA
+    except Exception as e:  # pragma: no cover
+        raise RuntimeError(
+            "This example needs scikit-learn. Install via `pip install scikit-learn`."
+        ) from e
+
+    rng = np.random.default_rng(seed)
+    ds = load_digits()
+    X = ds.data.astype(float)
+    y = ds.target.astype(int)
+
+    idx_all: list[int] = []
+    for d in digits:
+        idx = np.flatnonzero(y == d)
+        if len(idx) < n_per_digit:
+            raise ValueError(f"not enough samples for digit {d}: have {len(idx)}, need {n_per_digit}")
+        take = rng.choice(idx, size=n_per_digit, replace=False)
+        idx_all.extend(map(int, take))
+
+    idx_all = np.array(idx_all, dtype=int)
+    X_sel = X[idx_all]
+    y_sel = y[idx_all]
+
+    # Standardize features lightly: center only (scale optional, but keep dependencies minimal).
+    X_sel = X_sel - X_sel.mean(axis=0, keepdims=True)
+
+    pts = PCA(n_components=2, random_state=seed).fit_transform(X_sel)
+    return pts, y_sel
+
+
+def _intervals_surviving_to_scale(intervals: list[Interval], *, scale: float) -> list[Interval]:
+    s = float(scale)
+    return [(b, d) for (b, d) in intervals if b <= s and (d == inf or d >= s)]
+
+
+def main() -> None:
+    # Real dataset: digits 0 and 8 often yield a more structured point cloud than a circle.
+    points, labels = load_digits_points_2d(digits=(0, 8), n_per_digit=80, seed=0)
+
     max_dim = 1
+    # Choose a terminal scale from the data, so the example is stable under PCA scaling.
+    dist = _pairwise_distances(points)
+    # A “large” scale: 80th percentile of distances (tunable, but robust).
+    max_radius = float(np.quantile(dist, 0.80))
 
     res = compute_rips_persistent_homology(points, max_dim=max_dim, max_radius=max_radius)
 
-    b0_coarse = coarse_betti_at_scale(res.intervals_by_dim[0], scale=max_radius)
-    b1_coarse = coarse_betti_at_scale(res.intervals_by_dim[1], scale=max_radius)
+    h0 = res.intervals_by_dim[0]
+    h1 = res.intervals_by_dim[1]
+    h0_coarse = _intervals_surviving_to_scale(h0, scale=max_radius)
+    h1_coarse = _intervals_surviving_to_scale(h1, scale=max_radius)
 
-    print("Coarse proxy Betti numbers at terminal scale R = {:.3f}".format(max_radius))
-    print("beta_0^coarse(R) =", b0_coarse)
-    print("beta_1^coarse(R) =", b1_coarse)
+    print("Terminal scale R = {:.6f}".format(max_radius))
+    print("Coarse proxy Betti at R:")
+    print("beta_0^coarse(R) =", len(h0_coarse))
+    print("beta_1^coarse(R) =", len(h1_coarse))
     print()
     print("Interpretation:")
-    print("- Persistent H_1 detects the circle at intermediate scales.")
-    print("- The coarse proxy at large scale collapses bounded data to a point, so H_1 vanishes.")
+    print("- Persistent features can be long-lived but still die before the terminal scale.")
+    print("- The coarse proxy keeps only classes surviving to scale R.")
 
-    fig, axes = plt.subplots(1, 4, figsize=(18, 4))
+    fig, axes = plt.subplots(2, 3, figsize=(16, 8))
 
-    axes[0].set_title("Point cloud")
-    axes[0].scatter(points[:, 0], points[:, 1], s=12)
-    axes[0].set_aspect("equal", adjustable="box")
-    axes[0].set_xlabel("x")
-    axes[0].set_ylabel("y")
+    # Point cloud
+    ax = axes[0, 0]
+    ax.set_title("Digits (0 and 8), PCA to R^2")
+    sc = ax.scatter(points[:, 0], points[:, 1], s=12, c=labels)
+    ax.set_aspect("equal", adjustable="box")
+    ax.set_xlabel("PC1")
+    ax.set_ylabel("PC2")
+    fig.colorbar(sc, ax=ax, fraction=0.046, pad=0.04)
 
-    # Normal persistence at terminal scale, plotted as usual
-    plot_barcode(
-        axes[1],
-        res.intervals_by_dim[0],
-        scale=max_radius,
-        title="Persistent barcode, H0 over F2",
+    # Normal persistence barcodes
+    plot_barcode(axes[0, 1], h0, scale=max_radius, title="Persistent barcode H0 (all intervals)")
+    plot_barcode(axes[0, 2], h1, scale=max_radius, title="Persistent barcode H1 (all intervals)")
+
+    # Coarse proxy = surviving intervals only, plotted “next to” persistent
+    plot_barcode(axes[1, 1], h0_coarse, scale=max_radius, title="Coarse proxy at R: surviving H0")
+    plot_barcode(axes[1, 2], h1_coarse, scale=max_radius, title="Coarse proxy at R: surviving H1")
+
+    # Text panel
+    axes[1, 0].axis("off")
+    axes[1, 0].text(
+        0.0,
+        1.0,
+        "\n".join(
+            [
+                "Coarse proxy definition",
+                "",
+                "At terminal scale R:",
+                "keep intervals [b,d) with b <= R <= d (or d = +inf).",
+                "",
+                "This mimics the direct-limit intuition:",
+                "classes must survive to arbitrarily large scales,",
+                "but on bounded data the proxy tends to kill H1.",
+            ]
+        ),
+        va="top",
+        ha="left",
     )
-    plot_barcode(
-        axes[2],
-        res.intervals_by_dim[1],
-        scale=max_radius,
-        title="Persistent barcode, H1 over F2",
-    )
-
-    # Coarse proxy: keep only intervals surviving to the terminal scale
-    h0_coarse_intervals = [(b, d) for (b, d) in res.intervals_by_dim[0] if b <= max_radius and (d == inf or d >= max_radius)]
-    h1_coarse_intervals = [(b, d) for (b, d) in res.intervals_by_dim[1] if b <= max_radius and (d == inf or d >= max_radius)]
-
-    plot_barcode(
-        axes[3],
-        h0_coarse_intervals,
-        scale=max_radius,
-        title="Coarse proxy at scale R: surviving H0 classes",
-    )
-
-    # Optional: if you prefer coarse H1 instead, replace axes[3] call by:
-    # plot_barcode(
-    #     axes[3],
-    #     h1_coarse_intervals,
-    #     scale=max_radius,
-    #     title="Coarse proxy at scale R: surviving H1 classes",
-    # )
 
     fig.tight_layout()
     plt.show()
-
 
 
 if __name__ == "__main__":
