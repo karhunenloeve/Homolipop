@@ -1,7 +1,84 @@
+"""
+Example script: building a simplicial complex from maximal simplices.
+
+This file demonstrates :func:`homolipop.simplices.build_complex` on a small input
+consisting of two maximal 2-simplices.
+
+Mathematical conventions
+========================
+
+Abstract simplicial complex
+---------------------------
+
+Let :math:`V` be a finite set. An abstract simplicial complex on :math:`V` is a set
+:math:`K` of finite nonempty subsets of :math:`V` such that
+
+.. math::
+
+   \\sigma \\in K,\\ \\emptyset \\ne \\tau \\subseteq \\sigma
+   \\implies
+   \\tau \\in K.
+
+A simplex with :math:`k+1` vertices has dimension :math:`k`.
+
+Indexing and representation
+---------------------------
+
+Vertices are represented by integers. A simplex is represented by a strictly increasing
+tuple of vertex indices
+
+.. math::
+
+   \\sigma = (i_0,\\dots,i_k),\\qquad i_0 < \\cdots < i_k.
+
+Thus
+
+- a vertex is a 0-simplex ``(i,)``
+- an edge is a 1-simplex ``(i,j)``
+- a triangle is a 2-simplex ``(i,j,k)``
+
+Build rule used in this file
+----------------------------
+
+The input list ``maximal_simplices`` is interpreted as a set of maximal simplices
+of an abstract simplicial complex :math:`K`.
+The function :func:`homolipop.simplices.build_complex` is expected to return the full
+downward closure of these maximal simplices, truncated to simplices of dimension at most
+``max_dim``.
+
+In this example, the maximal 2-simplices are
+
+.. math::
+
+   (0,1,3),\\qquad (1,2,3).
+
+Therefore :math:`K` contains exactly
+
+- vertices :math:`(0)`, :math:`(1)`, :math:`(2)`, :math:`(3)`
+- edges :math:`(0,1)`, :math:`(0,3)`, :math:`(1,3)`, :math:`(1,2)`, :math:`(2,3)`
+- triangles :math:`(0,1,3)`, :math:`(1,2,3)`.
+
+The script prints the simplices grouped by dimension, a flattened list in dimension order,
+and selected entries of the global index map.
+"""
+
+from __future__ import annotations
+
 from homolipop.simplices import build_complex
 
 
-def main():
+def main() -> None:
+    """
+    Build a simplicial complex from two maximal triangles and print its internal structure.
+
+    The call ``build_complex(maximal_simplices, max_dim=2)`` is expected to produce
+
+    - ``simplices_by_dim[0]`` containing all vertices
+    - ``simplices_by_dim[1]`` containing all edges in the downward closure
+    - ``simplices_by_dim[2]`` containing the two input triangles
+    - ``all_simplices`` listing all simplices grouped by increasing dimension
+    - ``index`` mapping each simplex to its global index in ``all_simplices``
+    """
     maximal_simplices = [
         (0, 1, 3),
         (1, 2, 3),
