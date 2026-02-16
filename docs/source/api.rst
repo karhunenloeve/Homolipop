@@ -6,4 +6,4 @@ API Reference
    :recursive:
 
    homolipop
-   simplicialviz
+   homolipop.simplicialviz
