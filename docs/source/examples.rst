@@ -5,4 +5,4 @@ Examples
    :toctree: generated
    :recursive:
 
-   examples
+   homolipop.examples

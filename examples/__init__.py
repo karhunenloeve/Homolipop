@@ -1,14 +1,10 @@
 """
-homolipop.tests
+homolipop.examples
 
-Test modules for the Homolipop codebase.
+Example modules for the Homolipop documentation.
 
 Modules are discovered dynamically and re-exported.
 All modules must be importable without side effects.
-
-This package is intended for test discovery and documentation introspection.
-Do not execute tests at import time. Guard any execution entry points with
-``if __name__ == "__main__":``.
 """
 
 from __future__ import annotations

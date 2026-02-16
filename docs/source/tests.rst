@@ -5,4 +5,4 @@ Tests
    :toctree: generated
    :recursive:
 
-   tests
+   homolipop.tests
