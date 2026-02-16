@@ -15,6 +15,7 @@ from .kgraph import KTheoryFp, k_theory_cuntz_krieger_Fp
 from .kplotting import KTheoryProfile
 from .vertex_growth_filtration import vertex_growth_filtration, nested_cuntz_krieger_matrices_mod_p
 from .pkgraph import persistent_kgraph_from_nested_matrices
+from .coarse import CoarseHomologyResult, bornological_coarse_homology_from_points
 
 R = TypeVar("R")
 
@@ -117,3 +118,20 @@ def persistent_toeplitz_k_theory_from_points(
     )
     matrices = nested_cuntz_krieger_matrices_mod_p(filtration, p=p)
     return persistent_kgraph_from_nested_matrices(matrices, p=p, step_values=filtration.step_values)
+
+
+
+
+def bornological_coarse_homology_pipeline(
+    points: np.ndarray,
+    *,
+    max_dim: int = 2,
+    field: FieldOps = None,
+) -> CoarseHomologyResult:
+    """
+    Pipeline entrypoint: bornological coarse homology for finite point clouds.
+
+    Returns the full Rips barcode and the coarse homology groups encoded as
+    infinite bars.
+    """
+    return bornological_coarse_homology_from_points(points, max_dim=max_dim, field=field)
