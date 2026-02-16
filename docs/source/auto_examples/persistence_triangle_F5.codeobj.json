@@ -1,0 +1,102 @@
+{
+ "__name__": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "str"
+  }
+ ],
+ "build_complex": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.simplices",
+   "module_short": "homolipop",
+   "name": "build_complex"
+  },
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "build_complex"
+  }
+ ],
+ "field_Fp": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.persistence",
+   "module_short": "homolipop",
+   "name": "field_Fp"
+  }
+ ],
+ "field_Fp(5)": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "field_Fp(5)"
+  }
+ ],
+ "homolipop.persistence.persistent_homology_field": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.persistence",
+   "module_short": "homolipop",
+   "name": "persistent_homology_field"
+  }
+ ],
+ "homolipop.simplices.build_complex": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.simplices",
+   "module_short": "homolipop",
+   "name": "build_complex"
+  }
+ ],
+ "main": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  }
+ ],
+ "persistent_homology_field": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.persistence",
+   "module_short": "homolipop",
+   "name": "persistent_homology_field"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "__name__": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "str"
+  }
+ ],
+ "delaunay_triangulation": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.delaunay",
+   "module_short": "homolipop",
+   "name": "delaunay_triangulation"
+  }
+ ],
+ "homolipop.delaunay_triangulation": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop",
+   "module_short": "homolipop",
+   "name": "delaunay_triangulation"
+  },
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop",
+   "module_short": "homolipop",
+   "name": "delaunay_triangulation"
+  }
+ ],
+ "main": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  }
+ ],
+ "np.array": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "builtin_function_or_method"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "array"
+  }
+ ]
+}

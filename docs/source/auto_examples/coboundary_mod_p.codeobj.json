@@ -1,0 +1,139 @@
+{
+ "Dict": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "typing",
+   "module_short": "typing",
+   "name": "_SpecialGenericAlias"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "typing",
+   "module_short": "typing",
+   "name": "Dict"
+  }
+ ],
+ "RingOps": [
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "homolipop.coboundary",
+   "module_short": "homolipop.coboundary",
+   "name": "RingOps"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "homolipop",
+   "module_short": "homolipop",
+   "name": "RingOps"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.coboundary",
+   "module_short": "homolipop.coboundary",
+   "name": "RingOps"
+  }
+ ],
+ "Tuple": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "typing",
+   "module_short": "typing",
+   "name": "_TupleType"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "typing",
+   "module_short": "typing",
+   "name": "Tuple"
+  }
+ ],
+ "__name__": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "str"
+  }
+ ],
+ "build_coboundary": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.coboundary",
+   "module_short": "homolipop",
+   "name": "build_coboundary"
+  },
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "build_coboundary"
+  }
+ ],
+ "build_complex": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.simplices",
+   "module_short": "homolipop",
+   "name": "build_complex"
+  }
+ ],
+ "homolipop.coboundary.build_coboundary": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.coboundary",
+   "module_short": "homolipop",
+   "name": "build_coboundary"
+  },
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.coboundary",
+   "module_short": "homolipop",
+   "name": "build_coboundary"
+  }
+ ],
+ "homolipop.simplices.build_complex": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.simplices",
+   "module_short": "homolipop",
+   "name": "build_complex"
+  }
+ ],
+ "main": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  }
+ ]
+}

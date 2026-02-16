@@ -1,0 +1,216 @@
+{
+ "__name__": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "str"
+  }
+ ],
+ "alpha_filtration_order": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.filtration",
+   "module_short": "homolipop.filtration",
+   "name": "alpha_filtration_order"
+  }
+ ],
+ "alpha_values_squared": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.alpha",
+   "module_short": "homolipop.alpha",
+   "name": "alpha_values_squared"
+  }
+ ],
+ "barcodes_from_persistence": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.barcodes",
+   "module_short": "homolipop.barcodes",
+   "name": "barcodes_from_persistence"
+  }
+ ],
+ "build_complex": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.simplices",
+   "module_short": "homolipop",
+   "name": "build_complex"
+  }
+ ],
+ "delaunay_triangulation": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.delaunay",
+   "module_short": "homolipop",
+   "name": "delaunay_triangulation"
+  }
+ ],
+ "field_Fp": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.persistence",
+   "module_short": "homolipop",
+   "name": "field_Fp"
+  }
+ ],
+ "homolipop.alpha.alpha_values_squared": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.alpha",
+   "module_short": "homolipop.alpha",
+   "name": "alpha_values_squared"
+  }
+ ],
+ "homolipop.barcodes.Barcode": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.barcodes",
+   "module_short": "homolipop.barcodes",
+   "name": "Barcode"
+  }
+ ],
+ "homolipop.barcodes.barcodes_from_persistence": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.barcodes",
+   "module_short": "homolipop.barcodes",
+   "name": "barcodes_from_persistence"
+  }
+ ],
+ "homolipop.persistence.persistent_homology_field": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.persistence",
+   "module_short": "homolipop",
+   "name": "persistent_homology_field"
+  }
+ ],
+ "main": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  }
+ ],
+ "np.random.default_rng": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "_cython_3_1_4",
+   "module_short": "_cython_3_1_4",
+   "name": "cython_function_or_method"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy.random",
+   "module_short": "numpy.random",
+   "name": "default_rng"
+  }
+ ],
+ "persistent_homology_field": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.persistence",
+   "module_short": "homolipop",
+   "name": "persistent_homology_field"
+  }
+ ],
+ "plot_barcodes": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.plotting",
+   "module_short": "homolipop.plotting",
+   "name": "plot_barcodes"
+  }
+ ],
+ "plt.show": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "matplotlib.pyplot",
+   "module_short": "matplotlib.pyplot",
+   "name": "show"
+  }
+ ]
+}

@@ -1,9 +1,18 @@
 API Reference
 =============
 
-.. autosummary::
-   :toctree: generated
-   :recursive:
+homolipop
+---------
 
-   homolipop
-   homolipop.simplicialviz
+.. automodule:: homolipop
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+simplicialviz
+-------------
+
+.. automodule:: simplicialviz
+   :members:
+   :undoc-members:
+   :show-inheritance:

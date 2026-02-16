@@ -1,0 +1,102 @@
+{
+ "Barcode": [
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "homolipop.barcodes",
+   "module_short": "homolipop.barcodes",
+   "name": "Barcode"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "homolipop",
+   "module_short": "homolipop",
+   "name": "Barcode"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.barcodes",
+   "module_short": "homolipop.barcodes",
+   "name": "Barcode"
+  }
+ ],
+ "__name__": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "str"
+  }
+ ],
+ "bottleneck_distance": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.distances",
+   "module_short": "homolipop.distances",
+   "name": "bottleneck_distance"
+  }
+ ],
+ "homolipop.barcodes.Barcode": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.barcodes",
+   "module_short": "homolipop.barcodes",
+   "name": "Barcode"
+  }
+ ],
+ "homolipop.distances.bottleneck_distance": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.distances",
+   "module_short": "homolipop.distances",
+   "name": "bottleneck_distance"
+  }
+ ],
+ "homolipop.distances.wasserstein_distance": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.distances",
+   "module_short": "homolipop.distances",
+   "name": "wasserstein_distance"
+  }
+ ],
+ "main": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  }
+ ],
+ "wasserstein_distance": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.distances",
+   "module_short": "homolipop.distances",
+   "name": "wasserstein_distance"
+  }
+ ]
+}

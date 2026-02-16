@@ -1,7 +1,8 @@
 Examples
 ========
 
-.. automodule:: homolipop.examples
-   :members:
-   :imported-members:
-   :undoc-members:
+.. toctree::
+   :maxdepth: 2
+   :titlesonly:
+
+   auto_examples/index

@@ -1,0 +1,102 @@
+{
+ "__name__": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "str"
+  }
+ ],
+ "canonical_simplex": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.simplices",
+   "module_short": "homolipop",
+   "name": "canonical_simplex"
+  }
+ ],
+ "homolipop.simplices.canonical_simplex": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.simplices",
+   "module_short": "homolipop",
+   "name": "canonical_simplex"
+  }
+ ],
+ "homolipop.simplices.iter_faces": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.simplices",
+   "module_short": "homolipop",
+   "name": "iter_faces"
+  },
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.simplices",
+   "module_short": "homolipop",
+   "name": "iter_faces"
+  }
+ ],
+ "homolipop.simplices.simplex_dim": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "homolipop.simplices",
+   "module_short": "homolipop",
+   "name": "simplex_dim"
+  }
+ ],
+ "iter_faces": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.simplices",
+   "module_short": "homolipop",
+   "name": "iter_faces"
+  }
+ ],
+ "main": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  }
+ ],
+ "simplex_dim": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "homolipop.simplices",
+   "module_short": "homolipop",
+   "name": "simplex_dim"
+  }
+ ]
+}

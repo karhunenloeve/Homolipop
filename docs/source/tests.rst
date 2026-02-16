@@ -1,7 +1,4 @@
 Tests
 =====
 
-.. automodule:: homolipop.tests
-   :members:
-   :imported-members:
-   :undoc-members:
+.. include:: auto_tests/index.rst
