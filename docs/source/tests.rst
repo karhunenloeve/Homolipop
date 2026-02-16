@@ -5,4 +5,3 @@ Tests
    :members:
    :imported-members:
    :undoc-members:
-   :show-inheritance:

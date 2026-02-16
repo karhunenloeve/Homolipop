@@ -229,11 +229,10 @@ Graph based pipelines.
 See the examples directory for complete runnable scripts.
 
 Contents
---------
+========
 
 .. toctree::
    :maxdepth: 3
-   :caption: Docs
    :titlesonly:
 
    api
