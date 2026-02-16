@@ -1,8 +1,8 @@
 Tests
-========
+=====
 
-.. autosummary::
-   :toctree: generated
-   :recursive:
-
-   homolipop.tests
+.. automodule:: homolipop.tests
+   :members:
+   :imported-members:
+   :undoc-members:
+   :show-inheritance:
