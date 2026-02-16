@@ -1,4 +1,8 @@
 Tests
 =====
 
-.. include:: auto_tests/index.rst
+.. toctree::
+   :maxdepth: 2
+   :titlesonly:
+
+   auto_tests/index

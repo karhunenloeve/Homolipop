@@ -1,9 +1,14 @@
 from __future__ import annotations
 
-import os
 import sys
+from pathlib import Path
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "src")))
+DOCS = Path(__file__).resolve().parent
+ROOT = DOCS.parents[1]
+SRC = ROOT / "src"
+
+# Make local packages importable for autodoc and sphinx-gallery.
+sys.path.insert(0, str(SRC))
 
 project = "Homolipop"
 author = "Luciano Melodia"
@@ -16,27 +21,25 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.mathjax",
     "sphinx.ext.intersphinx",
+    "sphinx_gallery.gen_gallery",
     "sphinx_design",
     "sphinx_copybutton",
-    "sphinx_gallery.gen_gallery",
 ]
-
-autosummary_generate = True
-autosummary_generate_overwrite = True
-
-autodoc_default_options = {
-    "members": True,
-    "undoc-members": True,
-    "show-inheritance": True,
-}
-
-autodoc_typehints = "description"
-napoleon_google_docstring = True
-napoleon_numpy_docstring = True
 
 html_theme = "furo"
 
-# Intersphinx: must be (url, inventory) where inventory is None or a non-empty string.
+# Keep module pages lean. Control what is shown via explicit directives.
+autodoc_default_options = {
+    "show-inheritance": True,
+}
+
+# Crucial: avoid type-hint crossref spam like R, Simplex, np.ndarray, ...
+autodoc_typehints = "none"
+
+napoleon_google_docstring = True
+napoleon_numpy_docstring = True
+
+# Intersphinx: second entry must be a non-empty string URL or None. Never {}.
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "numpy": ("https://numpy.org/doc/stable", None),
@@ -44,20 +47,17 @@ intersphinx_mapping = {
     "matplotlib": ("https://matplotlib.org/stable", None),
 }
 
-# Make the build strict, but silence known noisy cross-ref classes from examples/autogen.
-suppress_warnings = [
-    "autosummary.import_cycle",
-    "ref.class",
-    "ref.func",
-    "ref.mod",
-    "ref.ref",
-]
+# Do not turn missing xrefs into warnings.
+nitpicky = False
 
-# Sphinx-Gallery
-_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+autosummary_generate = True
+autosummary_generate_overwrite = True
+
 sphinx_gallery_conf = {
-    "examples_dirs": [os.path.join(_ROOT, "examples")],
+    "examples_dirs": [str(ROOT / "examples")],
     "gallery_dirs": ["auto_examples"],
     "filename_pattern": r".*\.py$",
     "ignore_pattern": r"^_",
+    "download_all_examples": False,
+    "run_stale_examples": True,
 }

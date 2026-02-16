@@ -231,7 +231,7 @@ All randomness is controlled by the seed in :class:`TwoCirclesParams`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.368 seconds)
+   **Total running time of the script:** (0 minutes 0.371 seconds)
 
 
 .. _sphx_glr_download_auto_examples_rings_example_two_circles.py:

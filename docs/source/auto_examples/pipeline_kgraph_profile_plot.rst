@@ -141,7 +141,7 @@ materialized on demand with integer dtype ``np.int8``.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.767 seconds)
+   **Total running time of the script:** (0 minutes 0.766 seconds)
 
 
 .. _sphx_glr_download_auto_examples_pipeline_kgraph_profile_plot.py:

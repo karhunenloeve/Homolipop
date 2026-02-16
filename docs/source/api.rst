@@ -1,7 +1,7 @@
 API Reference
 =============
 
-homolipop
+Homolipop
 ---------
 
 .. automodule:: homolipop
@@ -9,7 +9,7 @@ homolipop
    :undoc-members:
    :show-inheritance:
 
-simplicialviz
+Simplicialviz
 -------------
 
 .. automodule:: simplicialviz

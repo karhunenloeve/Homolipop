@@ -301,7 +301,7 @@ Numerical and reproducibility notes
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 37.706 seconds)
+   **Total running time of the script:** (0 minutes 37.878 seconds)
 
 
 .. _sphx_glr_download_auto_examples_mnist_two_class_concentric_rings.py:

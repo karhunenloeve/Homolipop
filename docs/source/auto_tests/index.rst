@@ -1,8 +1,8 @@
 Tests
 =====
+
 .. toctree::
    :maxdepth: 1
-   :titlesonly:
 
    test_alpha_delaunay_small
    test_alpha_triangle

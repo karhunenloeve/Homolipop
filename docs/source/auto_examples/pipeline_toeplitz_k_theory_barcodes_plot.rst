@@ -156,7 +156,7 @@ All randomness in this file is controlled by NumPy's ``default_rng`` with a fixe
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.086 seconds)
+   **Total running time of the script:** (0 minutes 0.093 seconds)
 
 
 .. _sphx_glr_download_auto_examples_pipeline_toeplitz_k_theory_barcodes_plot.py:

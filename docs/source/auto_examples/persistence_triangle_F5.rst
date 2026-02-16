@@ -147,7 +147,7 @@ for arithmetic in :math:`\mathbb F_5`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.003 seconds)
+   **Total running time of the script:** (0 minutes 0.004 seconds)
 
 
 .. _sphx_glr_download_auto_examples_persistence_triangle_F5.py:
